@@ -1,0 +1,83 @@
+/* Markdown content styles */
+.content h1 {
+  font-size: 1.875rem;
+  color: rgb(134 239 172);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  color: rgb(134 239 172);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.content h3 {
+  font-size: 1.25rem;
+  color: rgb(134 239 172);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.content p {
+  color: rgb(74 222 128);
+  margin-bottom: 1rem;
+  line-height: 1.625;
+}
+
+.content ul,
+.content ol {
+  color: rgb(74 222 128);
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}
+
+.content code {
+  background-color: rgb(20 83 45);
+  color: rgb(134 239 172);
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875rem;
+}
+
+.content pre {
+  background-color: rgb(20 83 45);
+  border: 1px solid rgb(74 222 128);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.content blockquote {
+  border-left: 4px solid rgb(74 222 128);
+  padding-left: 1rem;
+  color: rgb(34 197 94);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.content a {
+  color: rgb(134 239 172);
+  text-decoration: underline;
+}
+
+.content a:hover {
+  color: rgb(187 247 208);
+}
+
+.content strong {
+  color: rgb(134 239 172);
+  font-weight: 700;
+}
