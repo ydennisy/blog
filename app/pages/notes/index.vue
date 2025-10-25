@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: posts } = await useAsyncData("til-list", () =>
-  queryCollection("tils").all()
+const { data: posts } = await useAsyncData('notes-list', () =>
+  queryCollection('notes').all()
 );
 </script>
 

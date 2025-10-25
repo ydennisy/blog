@@ -6,21 +6,21 @@ const slugSegments = computed(() => {
   if (Array.isArray(value)) {
     return value.filter(Boolean);
   }
-  return typeof value === "string" && value.length ? [value] : [];
+  return typeof value === 'string' && value.length ? [value] : [];
 });
 
 if (!slugSegments.value.length) {
-  throw createError({ statusCode: 404, statusMessage: "Blog post not found" });
+  throw createError({ statusCode: 404, statusMessage: 'Blog post not found' });
 }
 
-const entryPath = computed(() => `/tils/${slugSegments.value.join("/")}`);
+const entryPath = computed(() => `/notes/${slugSegments.value.join('/')}`);
 
 const { data: post } = await useAsyncData(entryPath.value, () =>
-  queryCollection("tils").path(entryPath.value).first()
+  queryCollection('notes').path(entryPath.value).first()
 );
 
 if (!post.value) {
-  throw createError({ statusCode: 404, statusMessage: "Blog post not found" });
+  throw createError({ statusCode: 404, statusMessage: 'Blog post not found' });
 }
 </script>
 

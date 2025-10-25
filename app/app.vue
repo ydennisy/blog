@@ -1,14 +1,11 @@
-<script setup lang="ts"></script>
-
 <template>
   <UApp>
     <UHeader>
       <template #left>
-        <NuxtLink to="/"> Home </NuxtLink>
-        <NuxtLink to="/tils"> TILs </NuxtLink>
-        <NuxtLink to="/"> Blog </NuxtLink>
-        <NuxtLink to="/"> Projects </NuxtLink>
-        <NuxtLink to="/"> About </NuxtLink>
+        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/notes">Notes</NuxtLink>
+        <NuxtLink to="/projects">Projects</NuxtLink>
+        <NuxtLink to="/about">About</NuxtLink>
       </template>
 
       <template #right>
