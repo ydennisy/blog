@@ -25,7 +25,7 @@ if (!post.value) {
 </script>
 
 <template>
-  <div class="prose mt-8">
+  <div class="prose dark:prose-invert mt-8">
     <h1>{{ post?.title }}</h1>
     <div class="flex flex-wrap gap-2 pt-2">
       <Tag v-for="tag in post?.tags" :key="tag" :label="tag" />

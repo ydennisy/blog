@@ -38,12 +38,11 @@
       </div>
 
       <div class="flex justify-center md:justify-end">
-        <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-          <!-- Placeholder for photo - replace with actual image -->
-          <span class="text-gray-400 dark:text-gray-600 text-sm">
-            Photo coming soon
-          </span>
-        </div>
+        <img
+          src="/avatar.webp"
+          alt="Dennis"
+          class="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover shadow-lg"
+        />
       </div>
     </div>
   </div>

@@ -8,6 +8,7 @@
   --ui-bg-elevated: #fafafa;
   --ui-bg-muted: #f5f5f5;
   --ui-text: black;
+  --ui-primary: #AB4ABA;
 }
 
 /* Dark mode customization using NuxtUI semantic tokens */
@@ -16,6 +17,7 @@
   --ui-bg-elevated: #0a0a0a;
   --ui-bg-muted: #0f0f0f;
   --ui-text: white;
+  --ui-primary: #AB4ABA;
 }
 
 @layer base {
