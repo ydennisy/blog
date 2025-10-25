@@ -13,9 +13,9 @@ const formatDate = (date: Date) => {
 </script>
 
 <template>
-  <div class="space-y-16">
+  <div class="space-y-8">
     <Hero />
-
+    <USeparator />
     <section class="space-y-8">
       <div class="flex items-center justify-between">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -30,15 +30,13 @@ const formatDate = (date: Date) => {
         </NuxtLink>
       </div>
 
-      <div class="space-y-6">
-        <article
-          v-for="post in recentNotes"
-          :key="post.path"
-          class="border border-gray-200 dark:border-gray-800 rounded-lg p-5 hover:border-gray-300 dark:hover:border-gray-700 transition-colors"
-        >
-          <NuxtLink :to="post.path" class="space-y-2">
+      <div class="space-y-2 pb-4">
+        <article v-for="post in recentNotes" :key="post.path" class="">
+          <NuxtLink :to="post.path" class="space-y-1">
             <div class="flex items-center justify-between gap-4">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-gray-100"
+              >
                 {{ post.title }}
               </h3>
 
