@@ -13,7 +13,7 @@ const formatDate = (date: Date) => {
 </script>
 
 <template>
-  <h1 class="text-2xl font-bold pt-8 pb-4">Notes</h1>
+  <Heading>Notes</Heading>
   <div class="space-y-4">
     <article v-for="note in notes" :key="note.path" class="group">
       <NuxtLink :to="note.path" class="space-y-1">

@@ -1,1 +1,4 @@
-<template>About</template>
+<template>
+  <Heading>About</Heading>
+  <p>Coming soon...</p>
+</template>
