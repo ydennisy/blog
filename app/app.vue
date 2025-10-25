@@ -1,11 +1,25 @@
+<script setup lang="ts">
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/notes', label: 'Notes' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/about', label: 'About' },
+];
+</script>
+
 <template>
   <UApp>
     <UHeader>
       <template #left>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/notes">Notes</NuxtLink>
-        <NuxtLink to="/projects">Projects</NuxtLink>
-        <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink
+          v-for="link in navLinks"
+          :key="link.to"
+          :to="link.to"
+          class="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary hover:bg-primary/10"
+          active-class="text-primary bg-primary/10"
+        >
+          {{ link.label }}
+        </NuxtLink>
       </template>
 
       <template #right>
@@ -16,6 +30,14 @@
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+        <UButton
+          to="https://www.linkedin.com/in/dennisyurkevich/"
+          target="_blank"
+          icon="i-simple-icons-linkedin"
+          aria-label="Linkedin"
           color="neutral"
           variant="ghost"
         />
@@ -41,6 +63,14 @@
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
+          color="neutral"
+          variant="ghost"
+        />
+        <UButton
+          to="https://www.linkedin.com/in/dennisyurkevich/"
+          target="_blank"
+          icon="i-simple-icons-linkedin"
+          aria-label="Linkedin"
           color="neutral"
           variant="ghost"
         />
