@@ -27,6 +27,9 @@ if (!post.value) {
 <template>
   <div class="prose mt-8">
     <h1>{{ post?.title }}</h1>
+    <div class="flex flex-wrap gap-2 pt-2">
+      <Tag v-for="tag in post?.tags" :key="tag" :label="tag" />
+    </div>
     <ContentRenderer v-if="post" :value="post" :prose="false" />
   </div>
 </template>
