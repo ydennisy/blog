@@ -1,10 +1,19 @@
 <script setup lang="ts">
+const route = useRoute();
+
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/notes', label: 'Notes' },
   { to: '/projects', label: 'Projects' },
   { to: '/about', label: 'About' },
 ];
+
+const isActive = (linkTo: string) => {
+  if (linkTo === '/') {
+    return route.path === '/';
+  }
+  return route.path.startsWith(linkTo);
+};
 </script>
 
 <template>
@@ -15,8 +24,10 @@ const navLinks = [
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary hover:bg-primary/10"
-          active-class="text-primary bg-primary/10"
+          :class="[
+            'px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary hover:bg-primary/10',
+            isActive(link.to) ? 'text-primary bg-primary/10' : ''
+          ]"
         >
           {{ link.label }}
         </NuxtLink>

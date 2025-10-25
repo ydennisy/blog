@@ -30,7 +30,7 @@ const formatDate = (date: Date) => {
         </NuxtLink>
       </div>
 
-      <div class="space-y-2 pb-4">
+      <div class="space-y-2 pb-8">
         <article v-for="post in recentNotes" :key="post.path" class="">
           <NuxtLink :to="post.path" class="space-y-1">
             <div class="flex items-center justify-between gap-4">

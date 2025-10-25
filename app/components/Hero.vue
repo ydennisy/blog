@@ -4,18 +4,21 @@
   <div class="py-16 md:py-24">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="space-y-6">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100"
+        >
           Hello, I'm Dennis
         </h1>
 
         <div class="text-lg text-gray-600 dark:text-gray-400 space-y-4">
           <p>
-            Welcome to my corner of the internet. This is where I share my thoughts,
-            learnings, and experiments as I navigate the world of technology and startups.
+            Welcome to my corner of the internet. This is where I share my
+            thoughts, learnings, and experiments as I navigate the world of
+            technology and startups.
           </p>
 
           <p>
-            I write about software engineering, startup lessons, and the things I'm
+            I write about software engineering, startups, and the things I'm
             building and learning along the way.
           </p>
         </div>
