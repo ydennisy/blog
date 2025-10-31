@@ -22,6 +22,20 @@ const { data: post } = await useAsyncData(entryPath.value, () =>
 if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Blog post not found' });
 }
+
+const seoTitle = post.value?.title
+  ? `${post.value.title} – Notes by Dennis Yurkevich`
+  : 'Notes – Dennis Yurkevich';
+const seoDescription = post.value?.description
+  ? post.value?.description
+  : 'Insights from Dennis Yurkevich on software engineering, startups, and building products.';
+useSeoMeta({
+  title: seoTitle,
+  description: seoDescription,
+  ogTitle: seoTitle,
+  ogDescription: seoDescription,
+  twitterCard: 'summary_large_image',
+});
 </script>
 
 <template>

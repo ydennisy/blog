@@ -10,6 +10,18 @@ const formatDate = (date: Date) => {
     day: 'numeric',
   }).format(new Date(date));
 };
+
+const seoTitle =
+  'Dennis Yurkevich – Building, learning, and writing about startups';
+const seoDescription =
+  'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.';
+useSeoMeta({
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
+  twitterCard: 'summary_large_image',
+});
 </script>
 
 <template>
