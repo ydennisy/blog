@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright CLI"
+  short_description: "Automate browser testing with playwright-cli"
+  default_prompt: "Use $playwright-cli to test the local web app and capture browser diagnostics."

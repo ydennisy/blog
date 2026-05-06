@@ -1,7 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
   --ui-bg: white;
   --ui-bg-elevated: #fafafa;
   --ui-bg-muted: #f5f5f5;
@@ -13,6 +16,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --ui-bg: black;
   --ui-bg-elevated: #0a0a0a;
   --ui-bg-muted: #0f0f0f;

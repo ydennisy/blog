@@ -14,10 +14,13 @@ export const metadata: Metadata = {
 
 const colorModeScript = `
 (() => {
-  const storedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.documentElement.classList.add('dark');
+  try {
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = storedTheme === 'dark' || (!storedTheme && prefersDark);
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+  } catch {
   }
 })();
 `;

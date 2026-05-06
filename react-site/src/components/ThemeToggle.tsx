@@ -2,40 +2,66 @@
 
 import { useEffect, useState } from 'react';
 
-function preferredDark() {
+const themeKey = 'theme';
+
+function getStoredTheme() {
   if (typeof window === 'undefined') {
-    return false;
+    return null;
   }
 
-  const storedTheme = window.localStorage.getItem('theme');
-  if (storedTheme === 'dark') {
-    return true;
+  try {
+    return window.localStorage.getItem(themeKey);
+  } catch {
+    return null;
   }
-  if (storedTheme === 'light') {
-    return false;
-  }
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
+    const root = document.documentElement;
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(nextIsDark: boolean) {
+      root.classList.toggle('dark', nextIsDark);
+      root.style.colorScheme = nextIsDark ? 'dark' : 'light';
+      setIsDark(nextIsDark);
+    }
+
+    function syncSystemTheme() {
+      if (!getStoredTheme()) {
+        applyTheme(mediaQuery.matches);
+      }
+    }
+
+    setIsDark(root.classList.contains('dark'));
+    mediaQuery.addEventListener('change', syncSystemTheme);
+
+    return () => {
+      mediaQuery.removeEventListener('change', syncSystemTheme);
+    };
   }, []);
 
   function toggleTheme() {
-    const nextIsDark = !preferredDark();
+    const nextIsDark = !document.documentElement.classList.contains('dark');
+
     document.documentElement.classList.toggle('dark', nextIsDark);
-    window.localStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
+    document.documentElement.style.colorScheme = nextIsDark ? 'dark' : 'light';
+
+    try {
+      window.localStorage.setItem(themeKey, nextIsDark ? 'dark' : 'light');
+    } catch {
+    }
+
     setIsDark(nextIsDark);
   }
 
   return (
     <button
       type="button"
-      aria-label="Toggle color mode"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
       className="icon-button"
       onClick={toggleTheme}
     >
