@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const notesDirectory = path.join(process.cwd(), 'content', 'notes');
+const localNotesDirectory = path.join(process.cwd(), 'content', 'notes');
+const sharedNotesDirectory = path.resolve(process.cwd(), '..', 'content', 'notes');
+const notesDirectory = fs.existsSync(sharedNotesDirectory)
+  ? sharedNotesDirectory
+  : localNotesDirectory;
 
 export type Note = {
   slug: string;
