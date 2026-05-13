@@ -28,6 +28,51 @@ export default function ProjectsPage() {
           <div className="space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Linkpeep
+              </h2>
+
+              <div className="flex flex-wrap gap-2">
+                <Tag label="TypeScript" />
+                <Tag label="AI" />
+                <Tag label="Search" />
+              </div>
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-400">
+              An AI powered search app, without the chat. It uses an LLM to
+              generate quality queries from your intent, fetches the results,
+              and shows you the links along with how each one helps answer your
+              query.
+            </p>
+          </div>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Built for moments when you want better search results without an
+            assistant yapping over them.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-sm font-medium">
+            <Link
+              href="https://linkpeep.vercel.app"
+              target="_blank"
+              className="text-gray-900 transition-colors hover:text-primary dark:text-gray-100"
+            >
+              Visit site →
+            </Link>
+            <Link
+              href="https://github.com/ydennisy/linkpeep"
+              target="_blank"
+              className="text-gray-900 transition-colors hover:text-primary dark:text-gray-100"
+            >
+              View source →
+            </Link>
+          </div>
+        </article>
+
+        <article className="space-y-4 rounded-lg border border-gray-200 p-5 dark:border-gray-800">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                 Cardaroo
               </h2>
 

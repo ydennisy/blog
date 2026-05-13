@@ -22,6 +22,53 @@ useSeoMeta({
         <div class="space-y-2">
           <div class="flex flex-wrap items-center justify-between gap-3">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              Linkpeep
+            </h2>
+
+            <div class="flex flex-wrap gap-2">
+              <Tag label="TypeScript" />
+              <Tag label="AI" />
+              <Tag label="Search" />
+            </div>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400">
+            An AI powered search app, without the chat. It uses an LLM to
+            generate quality queries from your intent, fetches the results, and
+            shows you the links along with how each one helps answer your
+            query.
+          </p>
+        </div>
+
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Built for moments when you want better search results without an
+          assistant yapping over them.
+        </p>
+
+        <div class="flex flex-wrap gap-4 text-sm font-medium">
+          <NuxtLink
+            to="https://linkpeep.vercel.app"
+            target="_blank"
+            class="text-gray-900 dark:text-gray-100 hover:text-primary transition-colors"
+          >
+            Visit site →
+          </NuxtLink>
+          <NuxtLink
+            to="https://github.com/ydennisy/linkpeep"
+            target="_blank"
+            class="text-gray-900 dark:text-gray-100 hover:text-primary transition-colors"
+          >
+            View source →
+          </NuxtLink>
+        </div>
+      </article>
+
+      <article
+        class="space-y-4 border border-gray-200 dark:border-gray-800 rounded-lg p-5"
+      >
+        <div class="space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Cardaroo
             </h2>
 
