@@ -53,7 +53,7 @@ export default function ProjectsPage() {
 
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             <Link
-              href="https://linkpeep.vercel.app"
+              href="https://linkpeep.app"
               target="_blank"
               className="text-gray-900 transition-colors hover:text-primary dark:text-gray-100"
             >
