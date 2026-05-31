@@ -1,11 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const localNotesDirectory = path.join(process.cwd(), 'content', 'notes');
-const sharedNotesDirectory = path.resolve(process.cwd(), '..', 'content', 'notes');
-const notesDirectory = fs.existsSync(sharedNotesDirectory)
-  ? sharedNotesDirectory
-  : localNotesDirectory;
+const notesDirectory = path.join(process.cwd(), 'content', 'notes');
 
 export type Note = {
   slug: string;
@@ -123,6 +119,7 @@ function escapeHtml(value: string) {
 
 function renderInline(markdown: string) {
   return escapeHtml(markdown)
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -132,6 +129,7 @@ function renderInline(markdown: string) {
 export function markdownToHtml(markdown: string) {
   const html: string[] = [];
   const paragraph: string[] = [];
+  const quote: string[] = [];
   let inList = false;
   let inFence = false;
   let fenceLanguage = '';
@@ -143,6 +141,14 @@ export function markdownToHtml(markdown: string) {
     }
     html.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
     paragraph.length = 0;
+  }
+
+  function flushQuote() {
+    if (!quote.length) {
+      return;
+    }
+    html.push(`<blockquote><p>${renderInline(quote.join(' '))}</p></blockquote>`);
+    quote.length = 0;
   }
 
   function closeList() {
@@ -166,6 +172,7 @@ export function markdownToHtml(markdown: string) {
         fenceLanguage = '';
       } else {
         flushParagraph();
+        flushQuote();
         closeList();
         inFence = true;
         fenceLanguage = fenceMatch[1] ?? '';
@@ -180,13 +187,23 @@ export function markdownToHtml(markdown: string) {
 
     if (!line.trim()) {
       flushParagraph();
+      flushQuote();
       closeList();
+      continue;
+    }
+
+    const quoteMatch = /^>\s?(.+)$/.exec(line);
+    if (quoteMatch) {
+      flushParagraph();
+      closeList();
+      quote.push(quoteMatch[1].trim());
       continue;
     }
 
     const headingMatch = /^(#{2,4})\s+(.+)$/.exec(line);
     if (headingMatch) {
       flushParagraph();
+      flushQuote();
       closeList();
       const level = headingMatch[1].length;
       html.push(`<h${level}>${renderInline(headingMatch[2])}</h${level}>`);
@@ -196,6 +213,7 @@ export function markdownToHtml(markdown: string) {
     const listMatch = /^-\s+(.+)$/.exec(line);
     if (listMatch) {
       flushParagraph();
+      flushQuote();
       if (!inList) {
         html.push('<ul>');
         inList = true;
@@ -204,10 +222,12 @@ export function markdownToHtml(markdown: string) {
       continue;
     }
 
+    flushQuote();
     paragraph.push(line.trim());
   }
 
   flushParagraph();
+  flushQuote();
   closeList();
 
   return html.join('\n');

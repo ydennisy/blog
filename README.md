@@ -1,6 +1,6 @@
 # dennisy.me
 
-Personal site built using Nuxt, NuxtUI & Nuxt Content.
+Personal site built using Next.js, React, and Tailwind CSS.
 
 ## Todos
 
