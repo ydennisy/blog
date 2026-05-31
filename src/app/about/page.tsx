@@ -2,19 +2,19 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import { Heading } from '@/components/Heading';
+import { createSocialMetadata } from '@/lib/metadata';
+
+const seoTitle = 'About – Dennis Yurkevich';
+const seoDescription =
+  'Learn more about Dennis Yurkevich, a London-based founder and generalist working on applied AI.';
 
 export const metadata: Metadata = {
-  title: 'About – Dennis Yurkevich',
-  description:
-    'Learn more about Dennis Yurkevich, a London-based founder and generalist working on applied AI.',
-  openGraph: {
-    title: 'About – Dennis Yurkevich',
-    description:
-      'Learn more about Dennis Yurkevich, a London-based founder and generalist working on applied AI.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
+  title: seoTitle,
+  description: seoDescription,
+  ...createSocialMetadata({
+    title: seoTitle,
+    description: seoDescription,
+  }),
 };
 
 type ExternalLinkProps = {

@@ -3,13 +3,22 @@ import { Analytics } from '@vercel/analytics/next';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { createSocialMetadata, siteUrl } from '@/lib/metadata';
 
 import './globals.css';
 
+const siteTitle = 'Dennis Yurkevich';
+const siteDescription =
+  'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.';
+
 export const metadata: Metadata = {
-  title: 'Dennis Yurkevich',
-  description:
-    'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.',
+  metadataBase: siteUrl,
+  title: siteTitle,
+  description: siteDescription,
+  ...createSocialMetadata({
+    title: siteTitle,
+    description: siteDescription,
+  }),
 };
 
 const colorModeScript = `

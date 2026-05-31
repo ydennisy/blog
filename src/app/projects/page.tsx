@@ -3,19 +3,19 @@ import Link from 'next/link';
 
 import { Heading } from '@/components/Heading';
 import { Tag } from '@/components/Tag';
+import { createSocialMetadata } from '@/lib/metadata';
+
+const seoTitle = 'Projects – Dennis Yurkevich';
+const seoDescription =
+  'A collection of the products and experiments Dennis Yurkevich is building.';
 
 export const metadata: Metadata = {
-  title: 'Projects – Dennis Yurkevich',
-  description:
-    'A collection of the products and experiments Dennis Yurkevich is building.',
-  openGraph: {
-    title: 'Projects – Dennis Yurkevich',
-    description:
-      'A collection of the products and experiments Dennis Yurkevich is building.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
+  title: seoTitle,
+  description: seoDescription,
+  ...createSocialMetadata({
+    title: seoTitle,
+    description: seoDescription,
+  }),
 };
 
 export default function ProjectsPage() {

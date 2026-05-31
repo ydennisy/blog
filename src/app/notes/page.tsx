@@ -3,20 +3,20 @@ import type { Metadata } from 'next';
 
 import { Heading } from '@/components/Heading';
 import { Tag } from '@/components/Tag';
+import { createSocialMetadata } from '@/lib/metadata';
 import { formatDate, getAllNotes } from '@/lib/notes';
 
+const seoTitle = 'Notes – Dennis Yurkevich';
+const seoDescription =
+  'Browse the latest notes from Dennis Yurkevich covering software engineering, startups, and building products.';
+
 export const metadata: Metadata = {
-  title: 'Notes – Dennis Yurkevich',
-  description:
-    'Browse the latest notes from Dennis Yurkevich covering software engineering, startups, and building products.',
-  openGraph: {
-    title: 'Notes – Dennis Yurkevich',
-    description:
-      'Browse the latest notes from Dennis Yurkevich covering software engineering, startups, and building products.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
+  title: seoTitle,
+  description: seoDescription,
+  ...createSocialMetadata({
+    title: seoTitle,
+    description: seoDescription,
+  }),
 };
 
 export default function NotesPage() {

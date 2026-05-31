@@ -3,20 +3,21 @@ import type { Metadata } from 'next';
 
 import { Hero } from '@/components/Hero';
 import { Tag } from '@/components/Tag';
+import { createSocialMetadata } from '@/lib/metadata';
 import { formatDate, getRecentNotes } from '@/lib/notes';
 
+const seoTitle =
+  'Dennis Yurkevich – Building, learning, and writing about startups';
+const seoDescription =
+  'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.';
+
 export const metadata: Metadata = {
-  title: 'Dennis Yurkevich – Building, learning, and writing about startups',
-  description:
-    'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.',
-  openGraph: {
-    title: 'Dennis Yurkevich – Building, learning, and writing about startups',
-    description:
-      'The personal site of Dennis Yurkevich where he shares notes on software engineering, startups, and ongoing experiments.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
+  title: seoTitle,
+  description: seoDescription,
+  ...createSocialMetadata({
+    title: seoTitle,
+    description: seoDescription,
+  }),
 };
 
 export default function Home() {

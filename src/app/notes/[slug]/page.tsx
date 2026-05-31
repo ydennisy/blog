@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Tag } from '@/components/Tag';
+import { createSocialMetadata } from '@/lib/metadata';
 import {
   getAllNotes,
   getNoteBySlug,
@@ -37,13 +38,10 @@ export async function generateMetadata({
   return {
     title,
     description: post.description,
-    openGraph: {
+    ...createSocialMetadata({
       title,
       description: post.description,
-    },
-    twitter: {
-      card: 'summary_large_image',
-    },
+    }),
   };
 }
 
