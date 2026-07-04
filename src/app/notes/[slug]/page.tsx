@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
+import { NoteImage } from '@/components/NoteImage';
 import { Tag } from '@/components/Tag';
 import { createSocialMetadata } from '@/lib/metadata';
-import {
-  getAllNotes,
-  getNoteBySlug,
-  markdownToHtml,
-} from '@/lib/notes';
+import { getAllNotes, getNoteBySlug } from '@/lib/notes';
 
 type NotePageProps = {
   params: Promise<{
@@ -53,8 +52,6 @@ export default async function NotePage({ params }: NotePageProps) {
     notFound();
   }
 
-  const html = markdownToHtml(post.content);
-
   return (
     <article className="prose mt-8 dark:prose-invert">
       <h1>{post.title}</h1>
@@ -63,7 +60,9 @@ export default async function NotePage({ params }: NotePageProps) {
           <Tag key={tag} label={tag} />
         ))}
       </div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ img: NoteImage }}>
+        {post.content}
+      </ReactMarkdown>
     </article>
   );
 }

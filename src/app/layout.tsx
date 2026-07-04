@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { JetBrains_Mono, Public_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 
 import { Footer } from '@/components/Footer';
@@ -6,6 +7,18 @@ import { Header } from '@/components/Header';
 import { createSocialMetadata, siteUrl } from '@/lib/metadata';
 
 import './globals.css';
+
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  variable: '--font-public-sans',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 const siteTitle = 'Dennis Yurkevich';
 const siteDescription =
@@ -40,7 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${publicSans.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="min-h-screen font-sans">
         <script dangerouslySetInnerHTML={{ __html: colorModeScript }} />
         <div className="flex min-h-screen flex-col">
