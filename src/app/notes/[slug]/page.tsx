@@ -60,7 +60,14 @@ export default async function NotePage({ params }: NotePageProps) {
           <Tag key={tag} label={tag} />
         ))}
       </div>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ img: NoteImage }}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        remarkRehypeOptions={{
+          footnoteLabel: 'References',
+          footnoteLabelProperties: {},
+        }}
+        components={{ img: NoteImage }}
+      >
         {post.content}
       </ReactMarkdown>
     </article>

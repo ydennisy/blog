@@ -154,3 +154,16 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+.prose .footnotes {
+  margin-top: 3rem;
+  border-top: 1px solid var(--ui-border);
+  padding-top: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose .footnotes h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
