@@ -25,7 +25,7 @@ export default function NotesPage() {
   return (
     <>
       <Heading>Notes</Heading>
-      <div className="space-y-4">
+      <div className="space-y-4 pb-8">
         {notes.map((note) => (
           <article key={note.path} className="group">
             <Link href={note.path} className="block space-y-1">

@@ -28,6 +28,45 @@ export default function ProjectsPage() {
           <div className="space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                KG1
+              </h2>
+
+              <div className="flex flex-wrap gap-2">
+                <Tag label="TypeScript" />
+                <Tag label="Knowledge" />
+                <Tag label="Learning" />
+              </div>
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-400">
+              A personal knowledge base for notes, links and flashcards. Capture
+              ideas quickly, search everything from one screen, and revisit
+              flashcards with spaced repetition.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4 text-sm font-medium">
+            <Link
+              href="https://kg1.io"
+              target="_blank"
+              className="text-gray-900 transition-colors hover:text-primary dark:text-gray-100"
+            >
+              Visit site →
+            </Link>
+            <Link
+              href="https://github.com/ydennisy/kg"
+              target="_blank"
+              className="text-gray-900 transition-colors hover:text-primary dark:text-gray-100"
+            >
+              View source →
+            </Link>
+          </div>
+        </article>
+
+        <article className="space-y-4 rounded-lg border border-gray-200 p-5 dark:border-gray-800">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                 Linkpeep
               </h2>
 
